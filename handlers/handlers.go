@@ -16,7 +16,9 @@ import (
 func Manejadores() {
 	router := mux.NewRouter()
 
-	router.HandleFunc("/registro", middlew.ComprobarBD(routers.Registro)).Methods("POST") //Cuando llegue el endpoint POST /registro va a llamar a middlew.ChequeoBD
+	router.HandleFunc("/registro", middlew.ComprobarBD(routers.Registro)).Methods("POST")                  //Cuando llegue el endpoint POST /registro va a llamar a middlew.ComprobarBD
+	router.HandleFunc("/login", middlew.ComprobarBD(routers.Login)).Methods("POST")                        //Cuando llegue el endpoint POST /login va a llamar a middlew.ComprobarBD
+	router.HandleFunc("/verperfil", middlew.ComprobarBD(middlew.ValidarJWT(routers.Login))).Methods("GET") //Cuando llegue el endpoint GET /verperfil va a llamar a middlew.ComprobarBD
 
 	PORT := os.Getenv("PORT") //Recuperamos la variable de entorno PORT
 	if PORT == "" {
