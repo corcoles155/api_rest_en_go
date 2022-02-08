@@ -1,1 +1,3 @@
-# api_rest_en_go
+# API Rest en GO
+
+API de ejemplo para registrar usuarios usando MongoDB
