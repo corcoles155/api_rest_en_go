@@ -44,7 +44,7 @@ func Login(wr http.ResponseWriter, r *http.Request) {
 	}
 
 	wr.Header().Set("Content-Type", "application/json")
-	wr.WriteHeader(http.StatusCreated) //Devolvemos un status 200
+	wr.WriteHeader(http.StatusCreated) //Devolvemos un status 201
 	json.NewEncoder(wr).Encode(resp)
 
 	expierationTime := time.Now().Add(24 * time.Hour) //Creamos una fecha de expiración, a la fecha actual le agrega 24h

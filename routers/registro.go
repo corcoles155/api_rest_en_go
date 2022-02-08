@@ -43,5 +43,5 @@ func Registro(wr http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	wr.WriteHeader(http.StatusCreated) //Devolvemos un 200
+	wr.WriteHeader(http.StatusCreated) //Devolvemos un 201
 }

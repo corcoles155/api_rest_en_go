@@ -13,7 +13,7 @@ func InsertarRegistro(usuario models.Usuario) (string, bool, error) {
 	defer cancel()                                                           //defer se ejecuta como última instrucción. Va a dar de baja el timeout
 
 	db := MongoCN.Database("twittor") //Para la BBDD twittor
-	col := db.Collection("usuario")   //Voy a usar la colección usuario
+	col := db.Collection("usuarios")  //Voy a usar la colección usuario
 
 	usuario.Password, _ = EncriptarPassword(usuario.Password)
 
@@ -23,6 +23,6 @@ func InsertarRegistro(usuario models.Usuario) (string, bool, error) {
 		return "", false, err
 	}
 
-	ObjID, _ := result.InsertedID.(primitive.ObjectID) //Obtener usuario.ID
-	return ObjID.String(), true, nil                   //convertirlo a string
+	objID, _ := result.InsertedID.(primitive.ObjectID) //Obtener usuario.ID
+	return objID.String(), true, nil                   //convertirlo a string
 }

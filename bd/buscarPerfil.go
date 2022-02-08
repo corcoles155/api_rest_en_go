@@ -17,7 +17,7 @@ func BuscarPerfil(ID string) (models.Usuario, error) {
 	defer cancel()
 
 	db := MongoCN.Database("twittor") //Para la BBDD twittor
-	col := db.Collection("usuario")   //Voy a usar la colección usuario
+	col := db.Collection("usuarios")  //Voy a usar la colección usuario
 
 	var perfil models.Usuario
 	objID, _ := primitive.ObjectIDFromHex(ID) //Convertimos el string ID a ObjectID

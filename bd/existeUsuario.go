@@ -14,7 +14,7 @@ func ExisteUsuario(email string) (models.Usuario, bool, string) {
 	defer cancel()                                                           //defer se ejecuta como última instrucción. Va a dar de baja el timeout
 
 	db := MongoCN.Database("twittor") //Para la BBDD twittor
-	col := db.Collection("usuario")   //Voy a usar la colección usuario
+	col := db.Collection("usuarios")  //Voy a usar la colección usuario
 
 	condicion := bson.M{"email": email} //bson.M corresponde a mapa de string
 
