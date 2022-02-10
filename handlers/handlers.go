@@ -29,6 +29,13 @@ func Manejadores() {
 	router.HandleFunc("/subirBanner", middlew.ComprobarBD(middlew.ValidarJWT(routers.SubirBanner))).Methods("POST")
 	router.HandleFunc("/obtenerBanner", middlew.ComprobarBD(middlew.ValidarJWT(routers.ObtenerBanner))).Methods("GET")
 
+	router.HandleFunc("/insertarRelacion", middlew.ComprobarBD(middlew.ValidarJWT(routers.InsertarRelacion))).Methods("POST")
+	router.HandleFunc("/eliminarRelacion", middlew.ComprobarBD(middlew.ValidarJWT(routers.EliminarRelacion))).Methods("DELETE")
+	router.HandleFunc("/consultarRelacion", middlew.ComprobarBD(middlew.ValidarJWT(routers.ConsultarRelacion))).Methods("GET")
+
+	router.HandleFunc("/listarUsuarios", middlew.ComprobarBD(middlew.ValidarJWT(routers.ListarUsuarios))).Methods("GET")
+	router.HandleFunc("/leerTweetsSeguidores", middlew.ComprobarBD(middlew.ValidarJWT(routers.LeerTweetsSeguidores))).Methods("GET")
+
 	PORT := os.Getenv("PORT") //Recuperamos la variable de entorno PORT
 	if PORT == "" {
 		PORT = "8080"

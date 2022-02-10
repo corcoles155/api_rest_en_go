@@ -5,14 +5,15 @@ import (
 	"net/http"
 )
 
+/*EliminarTweet*/
 func EliminarTweet(wr http.ResponseWriter, r *http.Request) {
-	TweetId := r.URL.Query().Get("id")
-	if len(TweetId) < 1 {
+	tweetId := r.URL.Query().Get("id")
+	if len(tweetId) < 1 {
 		http.Error(wr, "Debe enviar el parámetro id", http.StatusBadRequest)
 		return
 	}
 
-	err := bd.BorrarTweet(TweetId, IDUsuario)
+	err := bd.BorrarTweet(tweetId, IDUsuario)
 	if err != nil {
 		http.Error(wr, "Ocurrió un error al borrar el tweet "+err.Error(), http.StatusBadRequest)
 		return

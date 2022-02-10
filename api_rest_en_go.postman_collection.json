@@ -413,6 +413,189 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "Insertar Relacion entre dos usuarios",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "default"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer{{token}}",
+						"equals": true
+					}
+				],
+				"url": {
+					"raw": "http://{{host}}/insertarRelacion?id=123456",
+					"protocol": "http",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"insertarRelacion"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "123456"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Eliminar relacion entre dos usuarios",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "default"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer{{token}}",
+						"equals": true
+					}
+				],
+				"url": {
+					"raw": "http://{{host}}/eliminarRelacion?id=123456",
+					"protocol": "http",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"eliminarRelacion"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "123456"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Consultar relación entre dos usuarios",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "default"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer{{token}}",
+						"equals": true
+					}
+				],
+				"url": {
+					"raw": "http://{{host}}/consultarRelacion?id=1234567",
+					"protocol": "http",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"consultarRelacion"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "1234567"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Listar usuarios",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "default"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer{{token}}",
+						"equals": true
+					}
+				],
+				"url": {
+					"raw": "http://{{host}}/listarUsuarios?tipo=new&search=Ana&pagina=1",
+					"protocol": "http",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"listarUsuarios"
+					],
+					"query": [
+						{
+							"key": "tipo",
+							"value": "new"
+						},
+						{
+							"key": "search",
+							"value": "Ana"
+						},
+						{
+							"key": "pagina",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Leer tweets de seguidores",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "default"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer{{token}}",
+						"equals": true
+					}
+				],
+				"url": {
+					"raw": "http://{{host}}/leerTweetsSeguidores?pagina=1",
+					"protocol": "http",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"leerTweetsSeguidores"
+					],
+					"query": [
+						{
+							"key": "pagina",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
 		}
 	]
 }
