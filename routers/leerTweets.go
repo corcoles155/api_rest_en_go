@@ -9,8 +9,8 @@ import (
 
 /*LeerTweets permite leer los tweets de un usuario*/
 func LeerTweets(wr http.ResponseWriter, r *http.Request) {
-	ID := r.URL.Query().Get("id") //Extraemos de la URL el parámetro ID
-	if len(ID) < 1 {              //Si no encontró en la URL el parámetro id
+	id := r.URL.Query().Get("id") //Extraemos de la URL el parámetro ID
+	if len(id) < 1 {              //Si no encontró en la URL el parámetro id
 		http.Error(wr, "Debe enviar el parámetro id", http.StatusBadRequest)
 		return
 	}
@@ -28,7 +28,7 @@ func LeerTweets(wr http.ResponseWriter, r *http.Request) {
 
 	pag := int64(pagina)
 
-	respuesta, correcto := bd.LeerTweets(ID, pag)
+	respuesta, correcto := bd.LeerTweets(id, pag)
 	if !correcto {
 		http.Error(wr, "Error al leer los tweets", http.StatusBadRequest)
 		return

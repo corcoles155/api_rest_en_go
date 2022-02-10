@@ -1,0 +1,418 @@
+{
+	"info": {
+		"_postman_id": "18c4e4fb-f74f-46a3-9ac0-c9fde14abcd1",
+		"name": "api_rest_en_go",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Crear Usuario",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{       \r\n\t\"nombre\": \"Ana\",\r\n\t\"apellidos\": \"Córcoles\",\r\n\t\"fecha_nacimiento\": \"1991-05-22T00:00:00Z\",\r\n\t\"email\": \"ana@email.com\",   \r\n\t\"password\": \"123456789\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://{{host}}/registro",
+					"protocol": "http",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"registro"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login - generar token",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{       \r\n\t\"email\": \"ana@email.com\",   \r\n\t\"password\": \"123456789\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://{{host}}/login",
+					"protocol": "http",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Ver perfil",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "default"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer{{token}}",
+						"equals": true
+					}
+				],
+				"url": {
+					"raw": "http://{{host}}/verPerfil?id=1234567",
+					"protocol": "http",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"verPerfil"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "1234567"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Modificar Perfil",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "default"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer{{token}}",
+						"equals": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{       \r\n\t\"mensaje\": \"Este es mi primer tweet\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://{{host}}/tweet",
+					"protocol": "http",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"tweet"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Crear tweet",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "default"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer{{token}}",
+						"equals": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{       \r\n\t\"nombre\": \"Ana\",\r\n\t\"apellidos\": \"Córcoles\",\r\n\t\"fecha_nacimiento\": \"1991-05-22T00:00:00Z\",\r\n\t\"email\": \"ana@email.com\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://{{host}}/modificarPerfil",
+					"protocol": "http",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"modificarPerfil"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Leer tweets",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "default"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer{{token}}",
+						"equals": true
+					}
+				],
+				"url": {
+					"raw": "http://{{host}}/leerTweets?pagina=1&id=1234567",
+					"protocol": "http",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"leerTweets"
+					],
+					"query": [
+						{
+							"key": "pagina",
+							"value": "1"
+						},
+						{
+							"key": "id",
+							"value": "1234567"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Borrar tweets",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "default"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer{{token}}",
+						"equals": true
+					}
+				],
+				"url": {
+					"raw": "http://{{host}}/borrarTweet?id=1234567",
+					"protocol": "http",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"borrarTweet"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "1234567"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Subir Avatar",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "default"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer{{token}}",
+						"equals": true
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "avatar",
+							"type": "file",
+							"src": []
+						}
+					],
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://{{host}}/subirAvatar",
+					"protocol": "http",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"subirAvatar"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener Avatar de un usuario",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "default"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer{{token}}",
+						"equals": true
+					}
+				],
+				"url": {
+					"raw": "http://{{host}}/obtenerAvatar?id=1234567",
+					"protocol": "http",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"obtenerAvatar"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "1234567"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Subir Banner",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "default"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer{{token}}",
+						"equals": true
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "banner",
+							"type": "file",
+							"src": []
+						}
+					],
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://{{host}}/subirBanner",
+					"protocol": "http",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"subirBanner"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener Banner de un usuario",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "default"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer{{token}}",
+						"equals": true
+					}
+				],
+				"url": {
+					"raw": "http://{{host}}/obtenerBanner?id=1234567",
+					"protocol": "http",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"obtenerBanner"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "1234567"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

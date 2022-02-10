@@ -22,6 +22,12 @@ func Manejadores() {
 	router.HandleFunc("/modificarPerfil", middlew.ComprobarBD(middlew.ValidarJWT(routers.ModificarPerfil))).Methods("PUT") //Cuando llegue el endpoint PUT /modificarPerfil va a llamar a middlew.ComprobarBD, ComprobarBD devolverá la función ValidarJWT que a su vez devolverá la función ModificarPerfil
 	router.HandleFunc("/tweet", middlew.ComprobarBD(middlew.ValidarJWT(routers.GrabarTweet))).Methods("POST")              //Cuando llegue el endpoint POST /tweet va a llamar a middlew.ComprobarBD, ComprobarBD devolverá la función ValidarJWT que a su vez devolverá la función GrabarTweet
 	router.HandleFunc("/leerTweets", middlew.ComprobarBD(middlew.ValidarJWT(routers.LeerTweets))).Methods("GET")           //Cuando llegue el endpoint GET /leerTweets va a llamar a middlew.ComprobarBD, ComprobarBD devolverá la función ValidarJWT que a su vez devolverá la función LeerTweets
+	router.HandleFunc("/borrarTweet", middlew.ComprobarBD(middlew.ValidarJWT(routers.EliminarTweet))).Methods("DELETE")    //Cuando llegue el endpoint DELETE /borrarTweet va a llamar a middlew.ComprobarBD, ComprobarBD devolverá la función ValidarJWT que a su vez devolverá la función EliminarTweet
+
+	router.HandleFunc("/subirAvatar", middlew.ComprobarBD(middlew.ValidarJWT(routers.SubirAvatar))).Methods("POST")
+	router.HandleFunc("/obtenerAvatar", middlew.ComprobarBD(middlew.ValidarJWT(routers.ObtenerAvatar))).Methods("GET")
+	router.HandleFunc("/subirBanner", middlew.ComprobarBD(middlew.ValidarJWT(routers.SubirBanner))).Methods("POST")
+	router.HandleFunc("/obtenerBanner", middlew.ComprobarBD(middlew.ValidarJWT(routers.ObtenerBanner))).Methods("GET")
 
 	PORT := os.Getenv("PORT") //Recuperamos la variable de entorno PORT
 	if PORT == "" {
